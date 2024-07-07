@@ -1,4 +1,4 @@
-ID,title
-1, The Witcher
-2, Mostly Harmless
-3, Use of Weapons
+ID,title, author_ID
+1, The Witcher, 101
+2, Mostly Harmless, 101
+3, Use of Weapons, 102
