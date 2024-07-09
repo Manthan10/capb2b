@@ -2,8 +2,8 @@ using from '@sap/cds-common-content';
 
 using {
     cuid,
-    managed,
-    Country
+    managed
+// Country
 } from '@sap/cds/common';
 
 
@@ -15,7 +15,9 @@ service bookshop {
     }
 
     entity Authors : cuid {
-        name           : String;
-        countryOfBirth : Country;
+        name  : String;
+        // countryOfBirth : Country;
+        books : Association to many Books
+                    on books.author = $self; // to many association
     }
 }
