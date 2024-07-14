@@ -21,3 +21,15 @@ entity Authors : cuid {
     books : Association to many Books
                 on books.author = $self; // to many association
 }
+
+entity Orders : cuid {
+    comment : String;
+    Items   : Composition of many OrderItems
+                  on Items.parent = $self;
+}
+
+entity OrderItems {
+    key parent   : Association to Orders;
+    key pos      : Integer;
+        quantity : Integer;
+}
