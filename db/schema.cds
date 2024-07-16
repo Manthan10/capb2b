@@ -32,4 +32,5 @@ entity OrderItems {
     key parent   : Association to Orders;
     key pos      : Integer;
         quantity : Integer;
+        book     : Association to Books;
 }
