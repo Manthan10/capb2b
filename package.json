@@ -13,6 +13,7 @@
   "devDependencies": {
     "@cap-js/sqlite": "^1",
     "@sap/eslint-plugin-cds": "^3",
+    "cap-listening-plugin": "github:qmacro/cap-listening-plugin",
     "eslint": "^9"
   },
   "scripts": {

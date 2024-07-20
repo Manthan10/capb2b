@@ -20,8 +20,6 @@
   },
   //Use postCreateCommand to install cds package: https://containers.dev/implementors/json_reference/#lifecycle-scripts
   "postCreateCommand": "npm install -g @sap/cds-dk",
-  "forwardPorts": [
-    4004
-  ],
+  "forwardPorts": [4004],
   "remoteUser": "node"
 }
