@@ -2,7 +2,18 @@ const cds = require("@sap/cds");
 const logger = cds.log("capb2b");
 
 module.exports = cds.service.impl(function () {
-  logger("I am in a anonymous function");
+  const changeUrgencyDueToSubject = (data) => {
+    if (data) {
+      const books = Array.isArray(data) ? data : [data];
+      books.forEach((book) => {
+        if (book.title?.toLowerCase().includes("harmless")) {
+          book.urgency = "HIGH";
+        }
+      });
+    }
+  };
+
+  // logger("I am in a anonymous function");
 
   // this.on("READ", "Books", (req, next) => {
   //   return [
@@ -13,7 +24,5 @@ module.exports = cds.service.impl(function () {
   //     },
   //   ];
   // });
-  this.after("READ", "Books", (data, req) => {
-    data.map((book) => (book.title += "!"));
-  });
+  this.after("READ", "Books", changeUrgencyDueToSubject);
 });
