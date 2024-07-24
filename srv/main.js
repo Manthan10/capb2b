@@ -1,4 +1,5 @@
 const cds = require("@sap/cds");
+const { Books } = cds.entities("bookshop");
 const logger = cds.log("capb2b");
 
 module.exports = cds.service.impl(function () {
@@ -24,5 +25,7 @@ module.exports = cds.service.impl(function () {
   //     },
   //   ];
   // });
+
+  this.on("totalStock", () => 99);
   this.after("READ", "Books", changeUrgencyDueToSubject);
 });
