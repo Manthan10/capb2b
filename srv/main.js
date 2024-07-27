@@ -32,4 +32,6 @@ module.exports = cds.service.impl(function () {
   });
 
   this.after("READ", "Books", changeUrgencyDueToSubject);
+
+  this.on("stockvalue", Books, () => 42);
 });
