@@ -13,7 +13,8 @@ using {
 entity Books : cuid, managed {
     title  : String;
     author : Association to Authors;
-    stock  : Integer
+    stock  : Integer;
+    price  : Integer
 }
 
 entity Authors : cuid {

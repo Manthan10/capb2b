@@ -5,7 +5,11 @@ extend org.qmacro.Books with {
 }
 
 service bookshop {
-    entity Books   as projection on org.qmacro.Books;
+    entity Books   as projection on org.qmacro.Books
+        actions {
+            function stockvalue() returns Integer
+        };
+
     entity Authors as projection on org.qmacro.Authors;
     entity Orders  as projection on org.qmacro.Orders;
     function totalStock() returns Integer;

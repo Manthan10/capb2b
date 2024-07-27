@@ -26,6 +26,10 @@ module.exports = cds.service.impl(function () {
   //   ];
   // });
 
-  this.on("totalStock", () => 99);
+  this.on("totalStock", async () => {
+    const result = await SELECT.one.from(Books).columns("sum(stock) as total");
+    return result.total;
+  });
+
   this.after("READ", "Books", changeUrgencyDueToSubject);
 });
