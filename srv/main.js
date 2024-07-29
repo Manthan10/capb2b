@@ -33,5 +33,11 @@ module.exports = cds.service.impl(function () {
 
   this.after("READ", "Books", changeUrgencyDueToSubject);
 
-  this.on("stockvalue", Books, () => 42);
+  this.on("stockvalue", Books, async ({ params: [id] }) => {
+    const result = await SELECT.columns(["stock * price as stockvalue"]).from(
+      Books
+    ).where`ID = ${id}`;
+
+    return result[0].stockvalue;
+  });
 });
