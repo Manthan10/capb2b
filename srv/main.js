@@ -40,4 +40,14 @@ module.exports = cds.service.impl(function () {
 
     return result[0].stockvalue;
   });
+
+  this.on("setPrice", Books, async (req) => {
+    const id = req.params[0];
+
+    await UPDATE(Books, id).with({
+      price: req.data.price,
+    });
+
+    return await SELECT(Books, id);
+  });
 });

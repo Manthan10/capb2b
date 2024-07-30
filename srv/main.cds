@@ -7,7 +7,8 @@ extend org.qmacro.Books with {
 service bookshop {
     entity Books   as projection on org.qmacro.Books
         actions {
-            function stockvalue() returns Integer
+            function stockvalue()              returns Integer;
+            action   setPrice(price : Integer) returns Books;
         };
 
     entity Authors as projection on org.qmacro.Authors;
